@@ -12,6 +12,8 @@ const pool  = mysql.createPool({
 const app = express();
 
 
+app.use(express.json())
+
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Request-Width, Content, Accept, Content-type, Authorization');
@@ -25,7 +27,6 @@ const userRoutes = require('./routes/user')
 app.use('/api', userRoutes)
 
 
-console.log(mysql)
-console.log(pool)
+
 
 module.exports = app
